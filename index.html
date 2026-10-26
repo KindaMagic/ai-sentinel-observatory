@@ -78,12 +78,21 @@
 .contact-caution{font-size:.9rem;background:#ecf0ed;border-left:3px solid #668782;padding:18px 21px;color:#334b4b}
 @media(max-width:720px){.contact-grid{grid-template-columns:1fr}.contact-card{padding:22px}}
 @media print{.contact-card{break-inside:avoid}}
+
+.auto-findings{margin:23px 0 0;padding:24px 27px;background:#fcfdfa;border:1px solid #d8dedb;border-radius:5px}
+.auto-findings h2{font-size:1.4rem;margin:6px 0 12px}
+.auto-findings ul{list-style:disc;margin:10px 0 16px 22px;padding:0}
+.auto-findings li{margin:8px 0;color:#3a5452;font-size:.93rem}
+.auto-findings p{font-size:.9rem;color:#596e6c}
+.auto-findings[hidden]{display:none}
+@media(max-width:520px){.auto-findings{padding:18px}}
 </style>
 </head>
 <body>
 <header id="top"><div class="wrap"><nav aria-label="Main navigation"><a class="wordmark" href="#top">AI <span>SENTINEL</span></a><div class="links"><a href="#record">Evidence register</a><a href="#methods">Method</a><a href="#limits">Limits</a><a href="#reporting">Who to contact</a></div><a class="signal-link" href="#status" title="Dated risk assessment"><span class="signal-lamps" id="risk-lamps" role="img" aria-label="Risk level loading"><span class="signal-lamp green" data-risk-level="green"></span><span class="signal-lamp amber" data-risk-level="amber"></span><span class="signal-lamp orange" data-risk-level="orange"></span><span class="signal-lamp red" data-risk-level="red"></span></span><span class="signal-label"><strong id="risk-nav-level">RISK LEVEL LOADING</strong><small id="risk-nav-date">Dated assessment</small></span></a></nav>
 <div class="hero"><div class="eyebrow">An independent public-interest research pilot</div><h1>Evidence before alarm.<br>Human control before automation.</h1><p class="intro">AI systems are becoming more capable. Are the safeguards keeping pace? AI Sentinel tracks credible public reports of failures in oversight, containment and autonomous behaviour, without mistaking a warning for a catastrophe.</p><a class="jump" href="#record">Read the evidence register ↓</a><p class="hero-small"><b>Scope:</b> published reports and safety assessments only. This website cannot inspect private AI systems, detect undisclosed incidents or stop AI deployments. No real-time threat detection is claimed.</p></div></div></header>
 <div class="wrap status-wrap"><div id="status" class="status" role="region" aria-label="Evidence-based risk severity"><div><span class="badge">Research pilot · not an official safety authority</span><div class="watch-status" id="risk-panel"><span class="watch-status-light" aria-hidden="true"></span><span><strong id="risk-status-title">Loading risk assessment</strong><small id="risk-status-date">Evidence record pending</small></span></div><h2 id="risk-headline">Dated research assessment</h2><p class="note" id="risk-note">The colour is calculated from the published evidence record.</p><p class="note" id="risk-age-note" hidden></p></div><div class="status-side"><p class="mini">Evidence snapshot</p><strong>26 October 2026</strong><p>3 source-based entries below. Static public pilot. Updated only when an editor deliberately publishes a reviewed revision; not synced to the private daily watch.</p></div></div></div>
+<div class="wrap"><section id="automated-findings" class="auto-findings" aria-labelledby="automated-findings-heading" hidden><div class="mini">Automated publication watch</div><h2 id="automated-findings-heading">Recent source signals, not verified incidents</h2><p id="automated-sources"></p><ul id="automated-list"></ul><p class="small">Headlines are flagged by transparent keyword rules. A human must verify the underlying evidence before any formal finding or external report. See <a href="METHODOLOGY.md">methodology</a>.</p></section></div>
 <main class="wrap"><section id="record"><div class="section-head"><div><div class="mini">01 / Public evidence register</div><h2>What has actually happened?</h2><p>Events are described with dates, original sources and explicit boundaries of what the evidence proves. Each entry links to the research behind it.</p></div><div class="filter" role="group" aria-label="Filter observations"><button type="button" data-topic="All" aria-pressed="true">All 3</button><button type="button" data-topic="Containment" aria-pressed="false">Containment</button><button type="button" data-topic="Oversight" aria-pressed="false">Oversight</button><button type="button" data-topic="Agent conduct" aria-pressed="false">Agent conduct</button></div></div>
 <article class="card" data-topic="Containment"><div><span class="id">AS-2026-001 <span class="topic">Containment</span></span><h3>Internal research agent crossed an internet restriction</h3><p>On <b>20 September 2026</b>, OpenAI says an internal training agent reached a public chatbot service by using a gap in DNS filtering. The operator reports that the activity was detected, contained and followed by additional safeguards.</p><p class="scope"><strong>What is not established:</strong> ongoing uncontrolled access, independent confirmation of the repairs, self-replication or a wider loss-of-control event.</p><ul class="source-list"><li><a href="https://openai.com/index/securing-our-frontier-model-training-environment/" target="_blank" rel="noopener noreferrer">OpenAI containment report, 23 October ↗</a></li><li><a href="https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/" target="_blank" rel="noopener noreferrer">Detailed operator incident account ↗</a></li></ul></div><aside><dl><dt>Event date</dt><dd>20 Sep 2026</dd><dt>Disclosed</dt><dd>23 Oct 2026</dd><dt>Environment</dt><dd>Internal training</dd><dt>Evidence</dt><dd>Operator's primary report</dd><dt>Outcome</dt><dd>Reported contained</dd></dl></aside></article>
 <article class="card" data-topic="Oversight"><div><span class="id">AS-2026-002 <span class="topic">Oversight</span></span><h3>Independent evaluators identified weaknesses in agent monitoring</h3><p>METR and Redwood Research examined OpenAI's internal monitoring infrastructure as it stood in <b>July–August 2026</b>. Their <b>22 October</b> account describes several possible ways agents could bypass restrictions or evade monitoring. The study included limitations on what could be tested.</p><p class="scope"><strong>What is not established:</strong> that all weaknesses were exploited in production, or that the same gaps persist today. OpenAI says relevant safeguards were patched, but the reviewers did not verify the changes.</p><ul class="source-list"><li><a href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener noreferrer">METR primary evaluation report ↗</a></li><li><a href="https://www.reuters.com/business/ai-safety-group-metr-finds-flaws-openais-internal-monitoring-system-2026-10-22/" target="_blank" rel="noopener noreferrer">Reuters independent report ↗</a></li></ul></div><aside><dl><dt>Evaluation</dt><dd>21 Jul – 11 Aug 2026</dd><dt>Published</dt><dd>22 Oct 2026</dd><dt>Environment</dt><dd>Historical internal systems</dd><dt>Evidence</dt><dd>Independent primary assessment</dd><dt>Outcome</dt><dd>Fixes not independently retested</dd></dl></aside></article>
@@ -143,7 +152,7 @@
   <div class="contact-caution"><strong>Reporting guardrail:</strong> AI Sentinel never places calls or files reports automatically. A severe claim must be reviewed by an accountable person. Do not publish sensitive security information or personal data in GitHub Issues; use the responsible organisation's secure reporting process.</div>
 </section>
 </main>
-<footer><div class="wrap ft"><div><div class="wordmark">AI <span>SENTINEL</span></div><p>Independent public-interest research pilot by George Sfougaras. Evidence before alarm. Human control before automation.</p><p>No trackers, cookies, registrations or external scripts are included in this public pilot page. Outbound research links open their respective websites.</p></div><div><p><b>Version 0.5 risk-linked public pilot</b><br>Evidence snapshot: 26 October 2026<br><a href="incidents.json" download>Public evidence data (JSON) ↓</a><br><a href="METHODOLOGY.md" target="_blank" rel="noopener">Read the full method ↗</a><br><a href="#top">Back to top ↑</a></p></div></div></footer>
+<footer><div class="wrap ft"><div><div class="wordmark">AI <span>SENTINEL</span></div><p>Independent public-interest research pilot by George Sfougaras. Evidence before alarm. Human control before automation.</p><p>No trackers, cookies, registrations or external scripts are included in this public pilot page. Outbound research links open their respective websites.</p></div><div><p><b>Version 0.6 scheduled-source public pilot</b><br>Evidence snapshot: 26 October 2026<br><a href="incidents.json" download>Public evidence data (JSON) ↓</a><br><a href="METHODOLOGY.md" target="_blank" rel="noopener">Read the full method ↗</a><br><a href="#top">Back to top ↑</a></p></div></div></footer>
 <script>
 'use strict';
 const buttons = [...document.querySelectorAll('[data-topic].filter button, .filter button[data-topic]')];
@@ -196,34 +205,55 @@ function unavailableRisk(reason){
 }
 async function readPublishedRisk(){
  try{
-  const res=await fetch('incidents.json',{cache:'no-store'});
-  if(!res.ok) throw Error('Published evidence could not be loaded');
+  // The automated GitHub workflow publishes watch.json. Historical incidents remain separate.
+  const res=await fetch('watch.json',{cache:'no-store'});
+  if(res.status===404) throw Error('Automatic checks are not yet active');
+  if(!res.ok) throw Error('Could not load automatic monitoring record');
   const data=await res.json();
   const a=data.riskAssessment;
-  if(!a || !Object.prototype.hasOwnProperty.call(levelInfo,a.level)) throw Error('Severity not available in published record');
-  const d=new Date(a.assessedOn+'T12:00:00Z');
-  if(!Number.isFinite(d.getTime()) || d.toISOString().slice(0,10)!==a.assessedOn) throw Error('Invalid assessment date');
-  if(!Array.isArray(a.evidenceIds)||!a.evidenceIds.length||!a.evidenceIds.every(id=>(data.entries||[]).some(e=>e.id===id))) throw Error('Missing supporting evidence');
-  if(a.level==='red' && !(a.reviewStatus==='human-reviewed' && a.independentCorroboration===true)) throw Error('Red withheld: independent human confirmation required');
-  const date=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(d);
-  const stale=(Date.now()-d.getTime())>2.5*86400000;
-  const label=a.level.toUpperCase();
-  const reviewed=a.reviewStatus==='human-reviewed';
+  if(!a || data.checkStatus==='failed' || !Object.prototype.hasOwnProperty.call(levelInfo,a.level)) throw Error('Insufficient current source checks; risk remains unknown');
+  const timestamp=new Date(data.checkedAt);
+  if(!Number.isFinite(timestamp.getTime())) throw Error('Monitor update date invalid');
+  const ageHours=(Date.now()-timestamp.getTime())/3600000;
+  if(ageHours < -1) throw Error('Monitoring clock differs from visitor clock');
+  const stale=ageHours>36;
+  // Automated scanner has no authority to declare Red, even if data becomes corrupted.
+  if(a.level==='red' && !(a.reviewStatus==='human-reviewed' && a.independentCorroboration===true)) throw Error('Unverified Red classification withheld');
+  const level=a.level.toUpperCase();
+  const date=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'UTC'}).format(timestamp)+' UTC';
   riskLights.forEach(el=>el.classList.toggle('lit',el.dataset.riskLevel===a.level));
   const panel=document.getElementById('risk-panel');
   panel.dataset.level=a.level;
   panel.classList.toggle('is-stale',stale);
-  document.getElementById('risk-lamps').setAttribute('aria-label',label+' risk light illuminated; assessment '+date+'; '+(reviewed?'human reviewed':'provisional')+(stale?'; out of date':''));
-  document.getElementById('risk-nav-level').textContent=label+' · '+(stale?'DATED':reviewed?'REVIEWED':'PROVISIONAL');
+  document.getElementById('risk-lamps').setAttribute('aria-label',level+' provisional source-screening indicator, checked '+date+(stale?'; out of date':''));
+  document.getElementById('risk-nav-level').textContent=level+' · '+(stale?'STALE':'AUTO SCREEN');
   document.getElementById('risk-nav-date').textContent=date;
-  document.getElementById('risk-status-title').textContent=label+' RISK · '+levelInfo[a.level].toUpperCase();
-  document.getElementById('risk-status-date').textContent='Assessed '+date+' · '+(reviewed?'Human reviewed':'AI-generated, unverified')+(stale?' · OUT OF DATE':'');
-  document.getElementById('risk-headline').textContent=String(a.status||levelInfo[a.level]);
-  document.getElementById('risk-note').textContent='This colour comes directly from the risk severity stored in incidents.json and is supported by linked reports. '+(reviewed?'Human-reviewed assessment.':'Provisional AI assessment awaiting independent human review.')+' This is not a real-time monitor or an extinction probability; the formal public rating remains '+String(a.formalPublicRating||'unassigned')+'.';
+  document.getElementById('risk-status-title').textContent=level+' · '+levelInfo[a.level].toUpperCase();
+  document.getElementById('risk-status-date').textContent='Checked '+date+' · '+(data.sourcesAvailable||0)+'/'+(data.sourcesExpected||0)+' feeds available';
+  document.getElementById('risk-headline').textContent=String(a.status||'No verified incident assessment');
+  document.getElementById('risk-note').textContent='Automatically screened source headlines and summaries, NOT a verified measure of global AI danger. '+(data.checkStatus==='partial'?'Some sources failed; coverage is incomplete. ':'')+'Green does not mean safe. Orange calls for investigation, not emergency action. Formal public rating: unassigned. Red is never selected by the automated scanner.';
   const age=document.getElementById('risk-age-note');
   age.hidden=!stale;
-  age.textContent=stale?'This assessment is over two days old. It shows the last published rating, NOT a new assessment of today.':'';
- }catch(err){unavailableRisk(err.message||'No validated record');}
+  age.textContent=stale?'Automatic monitoring has not updated within 36 hours. This light is OUT OF DATE and must not be treated as a fresh assessment.':'';
+  const findings=document.getElementById('automated-findings');
+  const listing=document.getElementById('automated-list');
+  listing.replaceChildren();
+  const signals=Array.isArray(data.signals)?data.signals.slice(0,6):[];
+  for(const item of signals){
+    if(typeof item.url!=='string' || !item.url.startsWith('https://')) continue;
+    const li=document.createElement('li');
+    const link=document.createElement('a');
+    link.href=item.url; link.rel='noopener noreferrer'; link.target='_blank';
+    link.textContent=(item.title||'Publication')+' ('+(item.source||'source')+', '+(item.publishedAt||'undated')+')';
+    li.append(link);listing.append(li);
+  }
+  document.getElementById('automated-sources').textContent=(data.sourcesAvailable||0)+' of '+(data.sourcesExpected||0)+' checked feeds responded. Latest screening results are unreviewed and may omit important incidents.';
+  findings.hidden=false;
+ }catch(err){
+   unavailableRisk(err.message||'No current monitoring data');
+   const findings=document.getElementById('automated-findings');
+   findings.hidden=true;
+ }
 }
 readPublishedRisk();
 </script>
