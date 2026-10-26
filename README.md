@@ -1,2 +1,53 @@
-# ai-sentinel-observatory
-AI Sentinel Observatory is an independent public-interest research project by George Sfougaras, monitoring emerging AI risks, safety failures and human oversight through verifiable evidence, transparent reporting and responsible assessment.
+# AI Sentinel Observatory
+
+**An independent public-interest research project by George Sfougaras.**  
+Founded October 2026.
+
+*Evidence before alarm. Human control before automation.*
+
+AI Sentinel Observatory is an evidence-based public record of significant AI safety incidents, containment problems, monitoring weaknesses, and developments affecting human oversight.
+
+It is intended to make primary-source reports understandable, dated, open to criticism, and clear about what has **not** been established.
+
+## Explore
+
+- [Observatory website](https://kindamagic.github.io/ai-sentinel-observatory/) (requires GitHub Pages activation)
+- [Public methodology and guardrails](METHODOLOGY.md)
+- [Website source](index.html)
+
+## What the project is
+
+- A **read-only, dated public evidence snapshot**, currently covering three source-linked cases.
+- A transparent four-level **triage framework**: Green, Amber, Orange and Red, with qualified human verification before any severe public warning.
+- A research aid supporting informed discussion and independent scrutiny.
+
+## What it is not
+
+- It is **not** a live sensor connected to AI systems, an official emergency service, or an AI safety certification.
+- It cannot detect undisclosed incidents, predict human extinction, independently shut down systems, or establish whether a system is conscious.
+- The owner's separate ChatGPT scheduled news watch is **private**. It does **not** automatically write to this repository or publish its outputs.
+- Automated preliminary classifications are **not public findings**. The first snapshot has **no human-validated overall severity rating**.
+
+## Editorial safeguards
+
+We aim to:
+1. Link to original published sources and distinguish the date of an event from the date it was reported.
+2. Separate observations from inference and distinguish a controlled evaluation from deployment.
+3. Identify conflicts, missing verification, and the limits of each report.
+4. Require documented human editorial review before publication of severe assessments.
+5. Correct mistakes transparently. Please use [GitHub Issues](https://github.com/KindaMagic/ai-sentinel-observatory/issues) for corrections, sources and constructive scrutiny. Do not post private or sensitive information.
+
+The current rules and full publication checklist are in [METHODOLOGY.md](METHODOLOGY.md).
+
+## Hosting
+
+This repository is intended for GitHub Pages from the `main` branch at `/ (root)`. The website is a static HTML page with no public live feed. To enable GitHub Pages, go to **Settings → Pages → Build and deployment → Deploy from a branch**, select `main` and `/ (root)`, then **Save**.
+
+## Development and licensing
+
+**Status:** Public-interest pilot (v0.3), dated 26 October 2026.  
+**Creator and editor:** George Sfougaras.
+
+No open-source licence has been selected yet. Public access to the repository is not, by itself, permission to reuse its contents under an open-source licence.
+
+This project does not claim endorsement by the organisations whose reports it examines.
