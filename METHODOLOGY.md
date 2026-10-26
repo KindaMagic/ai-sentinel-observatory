@@ -25,6 +25,16 @@ Provide a transparent, readable evidence register of publicly documented events 
 
 **No public rating is assigned in the first pilot snapshot.** The separate automated watch generated Orange private triage on 26 October, but it was not independently human-validated. Review must precede any rated public alert.
 
+## Public traffic lights (editorial watch, separate from the formal rubric)
+The website now displays a **three-light evidence-attention indicator**: Green, Amber, Red. On **26 October 2026**, it displays **AMBER WATCH** because several recent, primary-source reports warrant scrutiny. It is **provisional and dated**, not a certified AI threat level, and does not supersede the four-level human-approved triage rubric above.
+
+- A green watch would mean no qualifying new reports in *the sources checked*, never a guarantee of safety.
+- An amber watch means credible documented concerns requiring scrutiny, including unverified repairs or consequential evaluation failures. It is **not** a prediction of imminent catastrophe.
+- A red light must **not** be displayed unless a qualifying severe ongoing incident is independently corroborated and authorised through the human-review process.
+- Orange remains available as a **formal escalation category**, distinct from the simplified public-facing traffic lights. Neither an automated Orange suggestion nor an Amber watch counts as a formal approved public rating.
+- **The traffic light is manually updated in source files** and must show an assessment date. It is not automatically updated by the private scheduled watch. Old status dates must not be presented as today's assessment.
+
+
 ## Publishing and governance guardrails
 - No automatically published Orange/Red alerts; human editor authorises each public revision.
 - At least two sources for major claims wherever available; where unavailable, publish the verification gap plainly.
