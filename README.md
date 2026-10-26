@@ -11,14 +11,14 @@ It is intended to make primary-source reports understandable, dated, open to cri
 
 ## Explore
 
-- [Observatory website](https://kindamagic.github.io/ai-sentinel-observatory/) (requires GitHub Pages activation)
+- [Observatory website](https://kindamagic.github.io/ai-sentinel-observatory/) (public website)
 - [Public methodology and guardrails](METHODOLOGY.md)
 - [Website source](index.html)
 
 ## What the project is
 
-- A **read-only, dated public evidence snapshot**, currently covering three source-linked cases.
-- A transparent four-level **triage framework**: Green, Amber, Orange and Red, with qualified human verification before any severe public warning.
+- Three source-linked historical cases in a **read-only editorial evidence register**, alongside an automatically refreshed four-source public-news screening indicator.
+- A transparent four-level **screening framework**: Green, Amber and Orange are provisional, based on public publication signals; Red is never automatically issued. Formal high-severity findings require qualified human verification.
 - A research aid supporting informed discussion and independent scrutiny.
 
 ## What it is not
@@ -45,11 +45,15 @@ The public website includes a verified UK **Who to contact** directory. **999** 
 
 ## Hosting
 
-This repository is intended for GitHub Pages from the `main` branch at `/ (root)`. The website is a static HTML page with no public live feed. To enable GitHub Pages, go to **Settings → Pages → Build and deployment → Deploy from a branch**, select `main` and `/ (root)`, then **Save**.
+The website is hosted on GitHub Pages using the `main` branch at `/ (root)`. A separate GitHub Actions workflow (`.github/workflows/ai-sentinel-monitor.yml`) runs **four source checks a day**, using `scripts/monitor.py` (Python standard library; no paid AI API). It writes `watch.json`, which the website reads on each visit. The underlying news feeds, not AI systems themselves, are being monitored.
+
+The last check and available sources are shown on the site. If checks fail, severity is unknown; a stale result is labelled after 36 hours. Keyword screening can miss dangerous incidents or flag harmless articles. A Red light, emergency message or report to authorities is **never automatically issued**. The separate `incidents.json` register remains under editorial control.
+
+To test the workflow, use GitHub **Actions → AI Sentinel public-source monitor → Run workflow**. Its results and any failures are visible in GitHub Actions.
 
 ## Development and licensing
 
-**Status:** Public-interest pilot (v0.5), dated 26 October 2026.  
+**Status:** Public-interest pilot (v0.6), dated 26 October 2026.  
 **Creator and editor:** George Sfougaras.
 
 No open-source licence has been selected yet. Public access to the repository is not, by itself, permission to reuse its contents under an open-source licence.
