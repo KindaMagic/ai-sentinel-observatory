@@ -1,4 +1,4 @@
-# AI Sentinel Observatory · Public methodology v0.2
+# AI Sentinel Observatory · Public methodology v0.4
 **Prepared:** 26 October 2026. **Status:** Independent public-interest pilot; human safety review pending.
 
 ## Purpose
@@ -25,15 +25,18 @@ Provide a transparent, readable evidence register of publicly documented events 
 
 **No public rating is assigned in the first pilot snapshot.** The separate automated watch generated Orange private triage on 26 October, but it was not independently human-validated. Review must precede any rated public alert.
 
-## Public traffic lights (editorial watch, separate from the formal rubric)
-The website now displays a **three-light evidence-attention indicator**: Green, Amber, Red. On **26 October 2026**, it displays **AMBER WATCH** because several recent, primary-source reports warrant scrutiny. It is **provisional and dated**, not a certified AI threat level, and does not supersede the four-level human-approved triage rubric above.
+## Risk-linked public indicator (four levels)
+The four lights **Green, Amber, Orange, Red** now derive their illuminated state from `riskAssessment.level` in the publicly committed `incidents.json`, including evidence IDs, assessment date and review status. The light is **not** set independently as an editorial mood or a time-of-day judgement.
 
-- A green watch would mean no qualifying new reports in *the sources checked*, never a guarantee of safety.
-- An amber watch means credible documented concerns requiring scrutiny, including unverified repairs or consequential evaluation failures. It is **not** a prediction of imminent catastrophe.
-- A red light must **not** be displayed unless a qualifying severe ongoing incident is independently corroborated and authorised through the human-review process.
-- Orange remains available as a **formal escalation category**, distinct from the simplified public-facing traffic lights. Neither an automated Orange suggestion nor an Amber watch counts as a formal approved public rating.
-- **The traffic light is manually updated in source files** and must show an assessment date. It is not automatically updated by the private scheduled watch. Old status dates must not be presented as today's assessment.
+The first recorded risk assessment on **26 October 2026** is **Orange (automated provisional triage)**, based on three linked reports. It is **not** independently human-validated, and the formal public rating remains unassigned. This is a signal to seek expert review, not evidence of an ongoing global emergency or an extinction probability.
 
+- Green: no qualifying event found in the observed sources; **never** an all-clear.
+- Amber: credible early signal requiring investigation.
+- Orange: significant documented control failure or serious monitoring weakness requiring escalation and independent review.
+- Red: independently corroborated severe ongoing real-world loss-of-control incident. The website withholds an unverified Red indication until documented human and independent corroboration requirements are met.
+- The browser reads the **published** evidence file. It does not access or edit the private scheduled watch, automatically gather new incidents, or deliver notifications to authorities.
+- Assessments are dated; if older than two days, the page explicitly marks them as out of date rather than presenting an old result as a fresh risk assessment.
+- A corrupted, missing or incomplete risk record means **no illuminated severity light**, not an arbitrary fallback to green.
 
 ## Publishing and governance guardrails
 - No automatically published Orange/Red alerts; human editor authorises each public revision.
