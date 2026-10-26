@@ -12,6 +12,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: ai-sentinel-monitor
@@ -20,7 +22,10 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,3 +43,16 @@ jobs:
             git commit -m "Update AI Sentinel automated public evidence watch"
             git push
           fi
+
+      - name: Assemble public site snapshot
+        run: |
+          mkdir -p .site
+          cp index.html incidents.json watch.json METHODOLOGY.md .site/
+          printf '' > .site/.nojekyll
+      - name: Upload public site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .site
+      - name: Deploy refreshed site to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
