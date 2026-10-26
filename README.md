@@ -45,7 +45,7 @@ The public website includes a verified UK **Who to contact** directory. **999** 
 
 ## Hosting
 
-The website is hosted on GitHub Pages using the `main` branch at `/ (root)`. A separate GitHub Actions workflow (`.github/workflows/ai-sentinel-monitor.yml`) runs **four source checks a day**, using `scripts/monitor.py` (Python standard library; no paid AI API). It writes `watch.json`, which the website reads on each visit. The underlying news feeds, not AI systems themselves, are being monitored.
+The site is hosted on GitHub Pages. A GitHub Actions workflow (`.github/workflows/ai-sentinel-monitor.yml`) runs **four source checks a day**, using `scripts/monitor.py` (Python standard library; no paid AI API). It writes `watch.json` and **directly deploys the refreshed static website through GitHub Pages**, avoiding the limitation that commits made with `GITHUB_TOKEN` do not trigger an ordinary branch-based Pages rebuild. The website reads `watch.json` on each visit. The underlying news feeds, not AI systems themselves, are being monitored.
 
 The last check and available sources are shown on the site. If checks fail, severity is unknown; a stale result is labelled after 36 hours. Keyword screening can miss dangerous incidents or flag harmless articles. A Red light, emergency message or report to authorities is **never automatically issued**. The separate `incidents.json` register remains under editorial control.
 
