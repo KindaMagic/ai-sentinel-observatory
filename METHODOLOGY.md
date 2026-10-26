@@ -1,4 +1,4 @@
-# AI Sentinel Observatory · Public methodology v0.4
+# AI Sentinel Observatory · Public methodology v0.5
 **Prepared:** 26 October 2026. **Status:** Independent public-interest pilot; human safety review pending.
 
 ## Purpose
@@ -37,6 +37,9 @@ The first recorded risk assessment on **26 October 2026** is **Orange (automated
 - The browser reads the **published** evidence file. It does not access or edit the private scheduled watch, automatically gather new incidents, or deliver notifications to authorities.
 - Assessments are dated; if older than two days, the page explicitly marks them as out of date rather than presenting an old result as a fresh risk assessment.
 - A corrupted, missing or incomplete risk record means **no illuminated severity light**, not an arbitrary fallback to green.
+
+## Routing evidence to people, not automatic emergency calls
+Public contact information is provided to help visitors choose an official reporting route when they have genuine evidence of an incident. Emergency numbers are reserved for immediate threats, not a colour on this site. NCSC, the police, Report Fraud and ICO have different remits and reporting requirements. Security incidents, crimes and personal-data breaches must be routed according to the underlying real-world facts. The website never phones, emails or submits allegations automatically, and the AI Security Institute is not represented as a public emergency hotline. Contact sources were checked on 26 October 2026.
 
 ## Publishing and governance guardrails
 - No automatically published Orange/Red alerts; human editor authorises each public revision.
