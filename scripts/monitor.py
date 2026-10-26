@@ -42,7 +42,7 @@ SERIOUS = re.compile(
     r"sabotag\w*|covert activit\w*|dangerous capabilit\w*)\b", re.I
 )
 CONCERN = re.compile(
-    r"\b(?:risk|misalign\w*|deceiv\w*|"
+    r"\b(?:risk\w*|misalign\w*|deceiv\w*|"
     r"decept\w*|cyberattack\w*|red.team\w*|"
     r"vulnerabilit\w*|incident\w*|security failure|control failure)\b", re.I
 )
