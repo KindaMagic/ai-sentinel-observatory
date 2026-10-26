@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-26T16:19:48Z",
+  "checkedAt": "2026-10-26T16:21:13Z",
   "lookbackDays": 14,
-  "checkStatus": "partial",
-  "sourcesAvailable": 3,
+  "checkStatus": "ok",
+  "sourcesAvailable": 4,
   "sourcesExpected": 4,
   "riskAssessment": {
     "level": "orange",
@@ -12,7 +12,7 @@
     "formalPublicRating": "unassigned",
     "assessedOn": "2026-10-26",
     "method": "transparent keyword screening of recent public publication feeds; not validation of claims",
-    "status": "5 relevant publication signal(s) in the last 14 days across 3/4 available feeds. This is a provisional evidence-screening indicator, not a global danger measurement.",
+    "status": "3 relevant publication signal(s) in the last 14 days across 4/4 available feeds. This is a provisional evidence-screening indicator, not a global danger measurement.",
     "warning": "Green never means safe; Orange is escalation for review, not an emergency. Red cannot be assigned automatically."
   },
   "sources": [
@@ -35,10 +35,10 @@
       "itemsInWindow": 9
     },
     {
-      "name": "Google DeepMind",
-      "feed": "https://deepmind.google/blog/rss.xml",
-      "state": "error",
-      "reason": "not well-formed (invalid token): line 1, column 0"
+      "name": "Hugging Face technical blog",
+      "feed": "https://huggingface.co/blog/feed.xml",
+      "state": "ok",
+      "itemsInWindow": 17
     }
   ],
   "signals": [
@@ -63,22 +63,6 @@
       "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
       "publishedAt": "2026-10-23",
       "summary": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.",
-      "source": "OpenAI newsroom",
-      "flag": "watch-keyword"
-    },
-    {
-      "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
-      "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
-      "publishedAt": "2026-10-23",
-      "summary": "OpenAI and Poland’s NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem.",
-      "source": "OpenAI newsroom",
-      "flag": "watch-keyword"
-    },
-    {
-      "title": "Democratic governance of frontier AI, part II: Empowering cyber defenders",
-      "url": "https://openai.com/index/empowering-cyber-defenders",
-      "publishedAt": "2026-10-21",
-      "summary": "OpenAI outlines a blueprint for empowering cyber defenders with frontier AI, stronger safeguards, modernized cybersecurity, and more resilient public institutions.",
       "source": "OpenAI newsroom",
       "flag": "watch-keyword"
     }
