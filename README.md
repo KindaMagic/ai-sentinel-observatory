@@ -39,13 +39,17 @@ We aim to:
 
 The current rules and full publication checklist are in [METHODOLOGY.md](METHODOLOGY.md).
 
+## Who to contact (UK)
+
+The public website includes a verified UK **Who to contact** directory. **999** is for immediate danger to life or a serious emergency, **101** for non-emergency police, **0300 123 2040** for Report Fraud / organisational live cyberattack reporting, and **0303 123 1113** for Information Commissioner's Office enquiries. For significant cyber incidents, organisations can use the [NCSC reporting portal](https://report.ncsc.gov.uk/). See official sources and restrictions on the website. No number is a general AI-existential-risk hotline; no calls are sent by Sentinel.
+
 ## Hosting
 
 This repository is intended for GitHub Pages from the `main` branch at `/ (root)`. The website is a static HTML page with no public live feed. To enable GitHub Pages, go to **Settings → Pages → Build and deployment → Deploy from a branch**, select `main` and `/ (root)`, then **Save**.
 
 ## Development and licensing
 
-**Status:** Public-interest pilot (v0.3), dated 26 October 2026.  
+**Status:** Public-interest pilot (v0.5), dated 26 October 2026.  
 **Creator and editor:** George Sfougaras.
 
 No open-source licence has been selected yet. Public access to the repository is not, by itself, permission to reuse its contents under an open-source licence.
