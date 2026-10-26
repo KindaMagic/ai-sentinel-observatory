@@ -26,12 +26,12 @@ FEEDS = [
      "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/aisi-blog.xml"),
     ("Anthropic research (Turing feed mirror)",
      "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/anthropic-research.xml"),
-    ("Google DeepMind", "https://deepmind.google/blog/rss.xml"),
+    ("Hugging Face technical blog", "https://huggingface.co/blog/feed.xml"),
 ]
 ALLOWED_LINK_HOSTS = {
     "openai.com", "www.openai.com", "aisi.gov.uk", "www.aisi.gov.uk",
     "anthropic.com", "www.anthropic.com", "deepmind.google",
-    "github.com", "metr.org", "www.metr.org",
+    "github.com", "metr.org", "www.metr.org", "huggingface.co", "www.huggingface.co",
 }
 AI_CONTEXT = re.compile(r"\b(?:ai|artificial intelligence|agent|model|llm|gpt|claude|alignment|frontier|cyber)\b", re.I)
 SERIOUS = re.compile(
@@ -42,9 +42,9 @@ SERIOUS = re.compile(
     r"sabotag\w*|covert activit\w*|dangerous capabilit\w*)\b", re.I
 )
 CONCERN = re.compile(
-    r"\b(?:risk|safety|monitoring|misalign\w*|deceiv\w*|"
+    r"\b(?:risk|misalign\w*|deceiv\w*|"
     r"decept\w*|cyberattack\w*|red.team\w*|"
-    r"vulnerabilit\w*|safeguard\w*|incident\w*|security failure)\b", re.I
+    r"vulnerabilit\w*|incident\w*|security failure|control failure)\b", re.I
 )
 USER_AGENT = "AI-Sentinel-Observatory/0.6 (+https://github.com/KindaMagic/ai-sentinel-observatory)"
 
