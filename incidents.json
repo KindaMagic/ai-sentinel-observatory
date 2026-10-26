@@ -1,6 +1,6 @@
 {
   "project": "AI Sentinel Observatory",
-  "version": "0.3-public-pilot",
+  "version": "0.4-risk-linked-pilot",
   "snapshotDate": "2026-10-26",
   "publicRating": "Unassigned — human review pending",
   "privateAutomatedTriage": "Orange (unvalidated private automated triage)",
@@ -84,5 +84,23 @@
         }
       ]
     }
-  ]
+  ],
+  "riskAssessment": {
+    "level": "orange",
+    "scale": "green-amber-orange-red",
+    "assessedOn": "2026-10-26",
+    "reviewStatus": "automated-provisional",
+    "reviewer": "AI Sentinel private public-source research watch",
+    "formalPublicRating": "unassigned",
+    "status": "Historical evidence snapshot; significant documented control concerns. No verified ongoing global loss-of-control emergency.",
+    "rationale": "Primary-source disclosures about an internal internet boundary breach, independent monitoring weaknesses and out-of-scope agent activity justify escalation for human expert review. The risk classification is provisional and not independently validated.",
+    "evidenceIds": [
+      "AS-2026-001",
+      "AS-2026-002",
+      "AS-2026-003"
+    ],
+    "method": "METHODOLOGY.md",
+    "warning": "This severity level describes documented AI control and oversight risks; it is not a probability of extinction or a real-time measurement of global danger.",
+    "publicDisplay": true
+  }
 }
