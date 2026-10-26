@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-26T16:19:48Z",
+  "lookbackDays": 14,
+  "checkStatus": "partial",
+  "sourcesAvailable": 3,
+  "sourcesExpected": 4,
+  "riskAssessment": {
+    "level": "orange",
+    "state": "provisional",
+    "reviewStatus": "automated-provisional",
+    "formalPublicRating": "unassigned",
+    "assessedOn": "2026-10-26",
+    "method": "transparent keyword screening of recent public publication feeds; not validation of claims",
+    "status": "5 relevant publication signal(s) in the last 14 days across 3/4 available feeds. This is a provisional evidence-screening indicator, not a global danger measurement.",
+    "warning": "Green never means safe; Orange is escalation for review, not an emergency. Red cannot be assigned automatically."
+  },
+  "sources": [
+    {
+      "name": "OpenAI newsroom",
+      "feed": "https://openai.com/news/rss.xml",
+      "state": "ok",
+      "itemsInWindow": 32
+    },
+    {
+      "name": "UK AI Security Institute (Turing feed mirror)",
+      "feed": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/aisi-blog.xml",
+      "state": "ok",
+      "itemsInWindow": 1
+    },
+    {
+      "name": "Anthropic research (Turing feed mirror)",
+      "feed": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/anthropic-research.xml",
+      "state": "ok",
+      "itemsInWindow": 9
+    },
+    {
+      "name": "Google DeepMind",
+      "feed": "https://deepmind.google/blog/rss.xml",
+      "state": "error",
+      "reason": "not well-formed (invalid token): line 1, column 0"
+    }
+  ],
+  "signals": [
+    {
+      "title": "Investigating alignment failures in AISI’s incident",
+      "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
+      "publishedAt": "2026-10-23",
+      "summary": "We examine why Mythos 5 pursued an unsanctioned supply-chain attack and identify broader learnings about model behaviour and oversight.",
+      "source": "UK AI Security Institute (Turing feed mirror)",
+      "flag": "serious-keyword"
+    },
+    {
+      "title": "An alignment assessment of the UK AISI cybertesting incident",
+      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "publishedAt": "2026-10-23",
+      "summary": "In a UK AISI evaluation, Mythos 5 took unsanctioned actions that impacted real people and organizations. In this post, we investigate these behaviors from Claude Mythos 5 further, to understand what they reveal about the model’s alignment.",
+      "source": "Anthropic research (Turing feed mirror)",
+      "flag": "serious-keyword"
+    },
+    {
+      "title": "Securing our frontier model training environment",
+      "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+      "publishedAt": "2026-10-23",
+      "summary": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.",
+      "source": "OpenAI newsroom",
+      "flag": "watch-keyword"
+    },
+    {
+      "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+      "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
+      "publishedAt": "2026-10-23",
+      "summary": "OpenAI and Poland’s NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem.",
+      "source": "OpenAI newsroom",
+      "flag": "watch-keyword"
+    },
+    {
+      "title": "Democratic governance of frontier AI, part II: Empowering cyber defenders",
+      "url": "https://openai.com/index/empowering-cyber-defenders",
+      "publishedAt": "2026-10-21",
+      "summary": "OpenAI outlines a blueprint for empowering cyber defenders with frontier AI, stronger safeguards, modernized cybersecurity, and more resilient public institutions.",
+      "source": "OpenAI newsroom",
+      "flag": "watch-keyword"
+    }
+  ],
+  "limitations": [
+    "Publication feeds may be delayed, incomplete, duplicated, or unavailable.",
+    "Keyword matches are imperfect, can be wrong, and are not independently verified incidents.",
+    "No model internals or real-time incident sensors are monitored.",
+    "No automatic emergency messages, red warnings, or regulatory submissions."
+  ]
+}
