@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-26T16:24:35Z",
+  "checkedAt": "2026-10-26T23:54:14Z",
   "lookbackDays": 14,
   "checkStatus": "ok",
   "sourcesAvailable": 4,
@@ -12,7 +12,7 @@
     "formalPublicRating": "unassigned",
     "assessedOn": "2026-10-26",
     "method": "transparent keyword screening of recent public publication feeds; not validation of claims",
-    "status": "3 relevant publication signal(s) in the last 14 days across 4/4 available feeds. This is a provisional evidence-screening indicator, not a global danger measurement.",
+    "status": "4 relevant publication signal(s) in the last 14 days across 4/4 available feeds. This is a provisional evidence-screening indicator, not a global danger measurement.",
     "warning": "Green never means safe; Orange is escalation for review, not an emergency. Red cannot be assigned automatically."
   },
   "sources": [
@@ -20,13 +20,13 @@
       "name": "OpenAI newsroom",
       "feed": "https://openai.com/news/rss.xml",
       "state": "ok",
-      "itemsInWindow": 32
+      "itemsInWindow": 38
     },
     {
       "name": "UK AI Security Institute (Turing feed mirror)",
       "feed": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/aisi-blog.xml",
       "state": "ok",
-      "itemsInWindow": 1
+      "itemsInWindow": 3
     },
     {
       "name": "Anthropic research (Turing feed mirror)",
@@ -42,6 +42,14 @@
     }
   ],
   "signals": [
+    {
+      "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+      "publishedAt": "2026-10-26",
+      "summary": "CodeRabbit uses GPT-6.1 Sol to investigate security risks across complex codebases. Its security agent helps developers review findings and proposed fixes.",
+      "source": "OpenAI newsroom",
+      "flag": "watch-keyword"
+    },
     {
       "title": "Investigating alignment failures in AISI’s incident",
       "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
