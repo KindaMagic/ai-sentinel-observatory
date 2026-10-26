@@ -109,5 +109,54 @@ function syncActiveNav() {
 window.addEventListener('scroll', syncActiveNav, {passive:true});
 window.addEventListener('resize', syncActiveNav);
 syncActiveNav();
+
+const levelInfo = {
+ green:'No qualifying report found',
+ amber:'Investigate',
+ orange:'Escalate for expert review',
+ red:'Urgent human-led response'
+};
+const riskLights = [...document.querySelectorAll('[data-risk-level]')];
+function unavailableRisk(reason){
+ riskLights.forEach(el=>el.classList.remove('lit'));
+ document.getElementById('risk-lamps').setAttribute('aria-label','Risk assessment unavailable');
+ document.getElementById('risk-nav-level').textContent='NOT ASSESSED';
+ document.getElementById('risk-nav-date').textContent='No current rating';
+ document.getElementById('risk-status-title').textContent='RISK ASSESSMENT UNAVAILABLE';
+ document.getElementById('risk-status-date').textContent=reason;
+ document.getElementById('risk-note').textContent='No risk level is claimed without a valid dated evidence record.';
+}
+async function readPublishedRisk(){
+ try{
+  const res=await fetch('incidents.json',{cache:'no-store'});
+  if(!res.ok) throw Error('Published evidence could not be loaded');
+  const data=await res.json();
+  const a=data.riskAssessment;
+  if(!a || !Object.prototype.hasOwnProperty.call(levelInfo,a.level)) throw Error('Severity not available in published record');
+  const d=new Date(a.assessedOn+'T12:00:00Z');
+  if(!Number.isFinite(d.getTime()) || d.toISOString().slice(0,10)!==a.assessedOn) throw Error('Invalid assessment date');
+  if(!Array.isArray(a.evidenceIds)||!a.evidenceIds.length||!a.evidenceIds.every(id=>(data.entries||[]).some(e=>e.id===id))) throw Error('Missing supporting evidence');
+  if(a.level==='red' && !(a.reviewStatus==='human-reviewed' && a.independentCorroboration===true)) throw Error('Red withheld: independent human confirmation required');
+  const date=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(d);
+  const stale=(Date.now()-d.getTime())>2.5*86400000;
+  const label=a.level.toUpperCase();
+  const reviewed=a.reviewStatus==='human-reviewed';
+  riskLights.forEach(el=>el.classList.toggle('lit',el.dataset.riskLevel===a.level));
+  const panel=document.getElementById('risk-panel');
+  panel.dataset.level=a.level;
+  panel.classList.toggle('is-stale',stale);
+  document.getElementById('risk-lamps').setAttribute('aria-label',label+' risk light illuminated; assessment '+date+'; '+(reviewed?'human reviewed':'provisional')+(stale?'; out of date':''));
+  document.getElementById('risk-nav-level').textContent=label+' · '+(stale?'DATED':reviewed?'REVIEWED':'PROVISIONAL');
+  document.getElementById('risk-nav-date').textContent=date;
+  document.getElementById('risk-status-title').textContent=label+' RISK · '+levelInfo[a.level].toUpperCase();
+  document.getElementById('risk-status-date').textContent='Assessed '+date+' · '+(reviewed?'Human reviewed':'AI-generated, unverified')+(stale?' · OUT OF DATE':'');
+  document.getElementById('risk-headline').textContent=String(a.status||levelInfo[a.level]);
+  document.getElementById('risk-note').textContent='This colour comes directly from the risk severity stored in incidents.json and is supported by linked reports. '+(reviewed?'Human-reviewed assessment.':'Provisional AI assessment awaiting independent human review.')+' This is not a real-time monitor or an extinction probability; the formal public rating remains '+String(a.formalPublicRating||'unassigned')+'.';
+  const age=document.getElementById('risk-age-note');
+  age.hidden=!stale;
+  age.textContent=stale?'This assessment is over two days old. It shows the last published rating, NOT a new assessment of today.':'';
+ }catch(err){unavailableRisk(err.message||'No validated record');}
+}
+readPublishedRisk();
 </script>
 </body></html>
