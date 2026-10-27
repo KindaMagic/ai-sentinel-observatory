@@ -36,9 +36,9 @@ class SentinelTests(unittest.TestCase):
         self.assertEqual(monitor.classify({"title": "AI agent unsanctioned action",
                                            "summary": ""}), "serious-keyword")
 
-    def test_caution_is_not_automatically_orange(self):
-        self.assertEqual(monitor.classify({"title": "New model monitoring risks",
-                                           "summary": ""}), "watch-keyword")
+    def test_generic_risk_word_is_not_itself_an_incident(self):
+        self.assertIsNone(monitor.classify({"title": "New model monitoring risks",
+                                            "summary": ""}))
 
     def test_routine_security_improvements_not_misclassified_as_incidents(self):
         self.assertIsNone(monitor.classify({
