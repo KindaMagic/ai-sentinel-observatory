@@ -18,7 +18,7 @@ It is intended to make primary-source reports understandable, dated, open to cri
 ## What the project is
 
 - Three source-linked historical cases in a **read-only editorial evidence register**, alongside an automatically refreshed four-source public-news screening indicator.
-- A transparent four-level **screening framework**: Green, Amber and Orange are provisional, based on public publication signals; Red is never automatically issued. Formal high-severity findings require qualified human verification.
+- A four-lamp **screening and review framework**: Green or Amber can arise automatically from public publication keyword screening; Orange and Red require documented independent human review and cannot be auto-issued. The lamps are not a global danger index.
 - A research aid supporting informed discussion and independent scrutiny.
 
 ## What it is not
@@ -26,7 +26,8 @@ It is intended to make primary-source reports understandable, dated, open to cri
 - It is **not** a live sensor connected to AI systems, an official emergency service, or an AI safety certification.
 - It cannot detect undisclosed incidents, predict human extinction, independently shut down systems, or establish whether a system is conscious.
 - The owner's separate ChatGPT scheduled news watch is **private**. It does **not** automatically write to this repository or publish its outputs.
-- Automated preliminary classifications are **not public findings**. The first snapshot has **no human-validated overall severity rating**.
+- Automated preliminary classifications are **not public findings**. There is **no human-validated overall severity rating**.
+- Different publishers may be discussing the same event; publication counts do not equal incident counts. General security-product news is not evidence of failed AI oversight.
 
 ## Editorial safeguards
 
@@ -47,7 +48,7 @@ The public website includes a verified UK **Who to contact** directory. **999** 
 
 The site is hosted on GitHub Pages. A GitHub Actions workflow (`.github/workflows/ai-sentinel-monitor.yml`) runs **four source checks a day**, using `scripts/monitor.py` (Python standard library; no paid AI API). It writes `watch.json` and **directly deploys the refreshed static website through GitHub Pages**, avoiding the limitation that commits made with `GITHUB_TOKEN` do not trigger an ordinary branch-based Pages rebuild. The website reads `watch.json` on each visit. The underlying news feeds, not AI systems themselves, are being monitored.
 
-The last check and available sources are shown on the site. If checks fail, severity is unknown; a stale result is labelled after 36 hours. Keyword screening can miss dangerous incidents or flag harmless articles. A Red light, emergency message or report to authorities is **never automatically issued**. The separate `incidents.json` register remains under editorial control.
+The last check and available sources are shown on the site. If checks fail, severity is unknown; a stale result is labelled after 36 hours. Keyword screening can miss dangerous incidents or flag harmless articles. Only Green/Amber publication-screening colours are automatic; Orange/Red, emergency messages and reports to authorities are **never automatically issued**. The separate `incidents.json` register remains under editorial control.
 
 To test the workflow, use GitHub **Actions → AI Sentinel public-source monitor → Run workflow**. Its results and any failures are visible in GitHub Actions.
 

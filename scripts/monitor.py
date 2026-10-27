@@ -2,7 +2,7 @@
 """AI Sentinel public-source monitor. Standard library only. No AI keys or model calls.
 
 The output is a *provisional news-signal index*, never a verified global AI risk score.
-Only Green/Amber/Orange are automated. Red requires accountable independent human review.
+Only Green/Amber are automated. Orange/Red require accountable independent human review.
 """
 from __future__ import annotations
 
@@ -33,7 +33,7 @@ ALLOWED_LINK_HOSTS = {
     "anthropic.com", "www.anthropic.com", "deepmind.google",
     "github.com", "metr.org", "www.metr.org", "huggingface.co", "www.huggingface.co",
 }
-AI_CONTEXT = re.compile(r"\b(?:ai|artificial intelligence|agent|model|llm|gpt|claude|alignment|frontier|cyber)\b", re.I)
+AI_CONTEXT = re.compile(r"\b(?:ai|artificial intelligence|agent|model|llm|gpt|claude|alignment|frontier)\b", re.I)
 SERIOUS = re.compile(
     r"\b(?:unsanctioned|unauthori[sz]ed|exfiltrat\w*|"
     r"containment breach|security breach|escaped|breakout|"
@@ -42,9 +42,9 @@ SERIOUS = re.compile(
     r"sabotag\w*|covert activit\w*|dangerous capabilit\w*)\b", re.I
 )
 CONCERN = re.compile(
-    r"\b(?:risk\w*|misalign\w*|deceiv\w*|"
-    r"decept\w*|cyberattack\w*|red.team\w*|"
-    r"vulnerabilit\w*|incident\w*|security failure|control failure)\b", re.I
+    r"\b(?:misalign\w*|deceiv\w*|decept\w*|"
+    r"cyberattack\w*|incident\w*|oversight failure|"
+    r"security failure|control failure|safety breach|model misuse)\b", re.I
 )
 USER_AGENT = "AI-Sentinel-Observatory/0.6 (+https://github.com/KindaMagic/ai-sentinel-observatory)"
 
@@ -145,14 +145,10 @@ def generate() -> dict:
             sources.append({"name": name, "feed": feed_url, "state": "error",
                             "reason": str(err)[:160]})
     healthy = sum(x["state"] == "ok" for x in sources)
-    serious = [x for x in signals if x["flag"] == "serious-keyword"]
-    # Two *distinct publications* with serious signs indicate a need to escalate for review.
-    # This is not proof that they independently verified the same event.
-    serious_publishers = {x["source"] for x in serious}
+    # Different publications may describe the same underlying incident.
+    # No severity above Amber can be inferred from unreviewed headlines/abstracts.
     if healthy < 2:
         level, state = None, "insufficient-sources"
-    elif len(serious_publishers) >= 2:
-        level, state = "orange", "provisional"
     elif signals:
         level, state = "amber", "provisional"
     else:
@@ -169,17 +165,18 @@ def generate() -> dict:
             "level": level, "state": state, "reviewStatus": "automated-provisional",
             "formalPublicRating": "unassigned",
             "assessedOn": TODAY.date().isoformat(),
-            "method": "transparent keyword screening of recent public publication feeds; not validation of claims",
+            "method": "conservative keyword screening of recent public publication feeds; not validation of claims or an incident count",
             "status": (f"{len(signals)} relevant publication signal(s) in the last {LOOKBACK_DAYS} days "
                        f"across {healthy}/{len(FEEDS)} available feeds. "
-                       "This is a provisional evidence-screening indicator, not a global danger measurement."),
-            "warning": "Green never means safe; Orange is escalation for review, not an emergency. Red cannot be assigned automatically."
+                       "Reports may cover the same incident. This is a provisional publication-screening indicator, not a global danger measurement."),
+            "warning": "Green never means safe. Amber means publications merit human checking. Orange and Red require independent documented human review and cannot be selected automatically."
         },
         "sources": sources,
         "signals": signals[:25],
         "limitations": [
             "Publication feeds may be delayed, incomplete, duplicated, or unavailable.",
             "Keyword matches are imperfect, can be wrong, and are not independently verified incidents.",
+            "Two publishers discussing the same event are not two independent incidents; publication totals do not count incidents.",
             "No model internals or real-time incident sensors are monitored.",
             "No automatic emergency messages, red warnings, or regulatory submissions."
         ]
@@ -190,7 +187,7 @@ def main() -> None:
     data = generate()
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"AI Sentinel: {data['checkStatus']}, {data['sourcesAvailable']} of {len(FEEDS)} feeds, "
-          f"{len(data['signals'])} signals, provisional risk={data['riskAssessment']['level']}")
+          f"{len(data['signals'])} screened publications, provisional source-watch={data['riskAssessment']['level']}")
     # A failed check still writes an explicit unknown status. It must never create a green all-clear.
     if data["checkStatus"] == "failed":
         print("Sources insufficient; public status must show unavailable", file=sys.stderr)

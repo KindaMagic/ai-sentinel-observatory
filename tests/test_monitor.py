@@ -40,11 +40,39 @@ class SentinelTests(unittest.TestCase):
         self.assertEqual(monitor.classify({"title": "New model monitoring risks",
                                            "summary": ""}), "watch-keyword")
 
+    def test_routine_security_improvements_not_misclassified_as_incidents(self):
+        self.assertIsNone(monitor.classify({
+            "title": "GPT-6.1 helps engineers strengthen code security",
+            "summary": "Model agent reviews security risks and proposes fixes"
+        }))
+        self.assertIsNone(monitor.classify({
+            "title": "Securing our frontier model training environment",
+            "summary": "Improved containment and high-compute red-teaming"
+        }))
+
     def test_total_feed_outage_disables_risk(self):
         with patch.object(monitor, "source_fetch", side_effect=RuntimeError("offline")):
             report = monitor.generate()
         self.assertIsNone(report["riskAssessment"]["level"])
         self.assertEqual(report["checkStatus"], "failed")
+
+    def test_no_screened_publications_is_green_not_an_all_clear(self):
+        original = monitor.FEEDS
+        monitor.FEEDS = [
+            ("OpenAI", "https://openai.com/news/rss.xml"),
+            ("DeepMind", "https://deepmind.google/blog/rss.xml"),
+        ]
+        try:
+            def fetch(url):
+                if "openai" in url:
+                    return rss("New model release")
+                return rss("New benchmark results", link="https://deepmind.google/blog/benchmark")
+            with patch.object(monitor, "source_fetch", side_effect=fetch):
+                report = monitor.generate()
+            self.assertEqual(report["riskAssessment"]["level"], "green")
+            self.assertIn("never means safe", report["riskAssessment"]["warning"])
+        finally:
+            monitor.FEEDS = original
 
     def test_one_serious_source_is_amber(self):
         original = monitor.FEEDS
@@ -62,7 +90,7 @@ class SentinelTests(unittest.TestCase):
         finally:
             monitor.FEEDS = original
 
-    def test_multi_source_serious_is_orange_but_not_red(self):
+    def test_multi_source_serious_remains_amber_without_human_review(self):
         original = monitor.FEEDS
         monitor.FEEDS = [
             ("OpenAI", "https://openai.com/news/rss.xml"),
@@ -75,7 +103,7 @@ class SentinelTests(unittest.TestCase):
                 return rss("AI agent security breach", link="https://deepmind.google/blog/security")
             with patch.object(monitor, "source_fetch", side_effect=fetch):
                 report = monitor.generate()
-            self.assertEqual(report["riskAssessment"]["level"], "orange")
+            self.assertEqual(report["riskAssessment"]["level"], "amber")
             self.assertEqual(report["riskAssessment"]["formalPublicRating"], "unassigned")
         finally:
             monitor.FEEDS = original
