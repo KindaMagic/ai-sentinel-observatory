@@ -326,11 +326,11 @@ function criticalField(dl, label, value) {
   dl.append(criticalText('dt',label),criticalText('dd',value));
 }
 function validCriticalRecord(x) {
-  return x && /^SCI-\\d{4}-\\d{3,}$/.test(String(x.id||'')) &&
+  return x && /^SCI-[0-9]{4}-[0-9]{3,}$/.test(String(x.id||'')) &&
     typeof x.title==='string' && typeof x.confirmedConsequences==='string' &&
     typeof x.criticalThreshold==='string' && x.criticalThreshold.trim().length>0 &&
     Array.isArray(x.sources) && x.sources.length>0 &&
-    x.sources.every(y=>typeof y.url==='string' && /^https:\\/\\//.test(y.url));
+    x.sources.every(y=>typeof y.url==='string' && y.url.startsWith('https://'));
 }
 async function loadCriticalRegister(){
   const target=document.getElementById('critical-entries');
@@ -391,8 +391,8 @@ async function loadCriticalRegister(){
 document.getElementById('critical-csv').addEventListener('click',()=>{
   const columns=['id','title','eventDate','disclosedDate','recordedDate','lastCheckedDate','setting','incidentType','observed','confirmedConsequences','criticalThreshold','notEstablished','status','verification','sourceURLs'];
   const cell=v=>{
-    let t=String(v??'').replace(/\\r?\\n/g,' ');
-    if(/^[\\s]*[=+@-]/.test(t)) t="'"+t;
+    let t=String(v??'').split(String.fromCharCode(10)).join(' ');
+    if('=+@-'.includes(t.trimStart().charAt(0))) t="'"+t;
     return '"'+t.replace(/"/g,'""')+'"';
   };
   const rows=[columns.map(cell).join(',')];
@@ -400,7 +400,7 @@ document.getElementById('critical-csv').addEventListener('click',()=>{
     const row=columns.map(k=>k==='sourceURLs'?(record.sources||[]).map(s=>s.url).join(' ; '):record[k]);
     rows.push(row.map(cell).join(','));
   }
-  const blob=new Blob([rows.join('\\r\\n')+'\\r\\n'],{type:'text/csv;charset=utf-8'});
+  const blob=new Blob([rows.join(String.fromCharCode(13,10))+String.fromCharCode(13,10)],{type:'text/csv;charset=utf-8'});
   const url=URL.createObjectURL(blob),link=document.createElement('a');
   link.href=url;link.download='ai-sentinel-critical-incidents.csv';
   document.body.append(link);link.click();link.remove();
