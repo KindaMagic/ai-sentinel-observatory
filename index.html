@@ -109,15 +109,47 @@ header .hero-layout .hero{max-width:none;padding-top:72px}
 @media(max-width:950px){header .hero-layout{grid-template-columns:1fr;gap:12px}header .hero-layout .hero{padding-top:60px}.hero-art{width:min(100%,530px);margin:22px auto 0}}
 @media(max-width:520px){header .hero-layout .hero{padding-top:42px}.hero-art{width:100%;margin-top:20px}.hero-art figcaption{font-size:.57rem;letter-spacing:.08em}}
 @media print{.hero-art img{background:#183235;max-width:240px}.hero-art figcaption{color:#193036}}
+
+/* Critical archive: a sober, examinable historical record, not a danger meter. */
+.critical-intro{max-width:790px;color:var(--muted);font-size:1.08rem}
+.critical-meta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:22px 0 14px;color:var(--muted);font-size:.9rem}
+.critical-meta strong{color:var(--ink);background:#e4ece7;border:1px solid #c9d9d0;padding:8px 12px;border-radius:4px}
+.critical-empty{background:var(--paper);border:1px solid var(--line);border-left:4px solid #72918a;padding:26px;max-width:900px}
+.critical-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:18px 0}
+.critical-links a,.critical-links button{font:inherit;font-size:.88rem;font-weight:600;color:var(--green);background:transparent;border:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:3px 0}
+.critical-links button:disabled{color:var(--muted);cursor:not-allowed;text-decoration:none}
+.critical-entry{background:var(--paper);border:1px solid var(--line);padding:26px;margin:15px 0}
+.critical-entry h3{margin:5px 0 12px}.critical-entry .critical-id{font-weight:700;letter-spacing:.08em;font-size:.77rem;color:#3c6861}
+.critical-entry dl{display:grid;grid-template-columns:minmax(120px,170px) 1fr;gap:7px 16px;font-size:.9rem}
+.critical-entry dt{font-weight:650;color:var(--muted)}.critical-entry dd{margin:0}
+.critical-entry ul{padding-left:22px}
+@media(max-width:520px){.critical-entry{padding:17px}.critical-entry dl{grid-template-columns:1fr;gap:3px}.critical-entry dd{margin-bottom:10px}}
 </style>
 </head>
 <body>
-<header id="top"><div class="wrap"><nav aria-label="Main navigation"><a class="wordmark" href="#top">AI <span>SENTINEL</span></a><div class="links"><a href="#record">Evidence register</a><a href="#methods">Method</a><a href="#limits">Limits</a><a href="#reporting">Who to contact</a></div><a class="signal-link" href="#status" title="Dated risk assessment"><span class="signal-lamps" id="risk-lamps" role="img" aria-label="Risk level loading"><span class="signal-lamp green" data-risk-level="green"></span><span class="signal-lamp amber" data-risk-level="amber"></span><span class="signal-lamp orange" data-risk-level="orange"></span><span class="signal-lamp red" data-risk-level="red"></span></span><span class="signal-label"><strong id="risk-nav-level">SOURCE WATCH LOADING</strong><small id="risk-nav-date">Dated assessment</small></span></a></nav>
-<div class="hero-layout"><div class="hero"><div class="eyebrow">An independent public-interest research pilot</div><h1>Evidence before alarm.<br>Human control before automation.</h1><p class="intro">AI can expand knowledge and improve lives. Misuse, weak safeguards and failures of human oversight can also cause serious harm. AI Sentinel examines credible public reports of failures in oversight, containment and autonomous behaviour, distinguishing evidence from speculation.</p><a class="jump" href="#record">Read the evidence register ↓</a><p class="creator-byline">Founded by <a href="#creator">George Sfougaras</a> · Artist, printmaker and independent researcher</p><p class="hero-small"><b>Scope:</b> published reports and safety assessments only. This website cannot inspect private AI systems, detect undisclosed incidents or stop AI deployments. No real-time threat detection is claimed.</p></div><figure class="hero-art"><img src="human-judgement.svg" width="960" height="530" decoding="async" alt="Engraved illustration showing public evidence flowing through analysis and assessment to a human face representing judgement, then branching into possible benefit, manageable risk, uncertainty and harm. Conceptual illustration, not a prediction."><figcaption>THE POINT OF HUMAN JUDGEMENT · POSSIBLE OUTCOMES, NOT PREDICTIONS</figcaption></figure></div></div></header>
+<header id="top"><div class="wrap"><nav aria-label="Main navigation"><a class="wordmark" href="#top">AI <span>SENTINEL</span></a><div class="links"><a href="#critical">Critical incidents</a><a href="#record">Other evidence</a><a href="#methods">Method</a><a href="#limits">Limits</a><a href="#reporting">Who to contact</a></div><a class="signal-link" href="#status" title="Dated risk assessment"><span class="signal-lamps" id="risk-lamps" role="img" aria-label="Risk level loading"><span class="signal-lamp green" data-risk-level="green"></span><span class="signal-lamp amber" data-risk-level="amber"></span><span class="signal-lamp orange" data-risk-level="orange"></span><span class="signal-lamp red" data-risk-level="red"></span></span><span class="signal-label"><strong id="risk-nav-level">SOURCE WATCH LOADING</strong><small id="risk-nav-date">Dated assessment</small></span></a></nav>
+<div class="hero-layout"><div class="hero"><div class="eyebrow">An independent public-interest research pilot</div><h1>Evidence before alarm.<br>Human control before automation.</h1><p class="intro">AI can expand knowledge and improve lives. Misuse, weak safeguards and failures of human oversight can also cause serious harm. AI Sentinel examines credible public reports of failures in oversight, containment and autonomous behaviour, distinguishing evidence from speculation.</p><a class="jump" href="#critical">Examine the critical incidents register ↓</a><p class="creator-byline">Founded by <a href="#creator">George Sfougaras</a> · Artist, printmaker and independent researcher</p><p class="hero-small"><b>Scope:</b> published reports and safety assessments only. This website cannot inspect private AI systems, detect undisclosed incidents or stop AI deployments. No real-time threat detection is claimed.</p></div><figure class="hero-art"><img src="human-judgement.svg" width="960" height="530" decoding="async" alt="Engraved illustration showing public evidence flowing through analysis and assessment to a human face representing judgement, then branching into possible benefit, manageable risk, uncertainty and harm. Conceptual illustration, not a prediction."><figcaption>THE POINT OF HUMAN JUDGEMENT · POSSIBLE OUTCOMES, NOT PREDICTIONS</figcaption></figure></div></div></header>
 <div class="wrap status-wrap"><div id="status" class="status" role="region" aria-label="Public-source publication screening"><div><span class="badge">Research pilot · not an official safety authority</span><div class="watch-status" id="risk-panel"><span class="watch-status-light" aria-hidden="true"></span><span><strong id="risk-status-title">Loading publication screening</strong><small id="risk-status-date">Evidence record pending</small></span></div><h2 id="risk-headline">Dated research assessment</h2><p class="note" id="risk-note">The provisional colour reflects publication keywords only, not a measure of AI danger.</p><p class="note" id="risk-age-note" hidden></p></div><div class="status-side"><p class="mini">Evidence snapshot</p><strong>26 October 2026</strong><p>Three human-readable historical cases below are an editorial snapshot. The coloured indicator and recent publications above the register are refreshed separately by an automated GitHub source monitor. Neither constitutes an approved public emergency rating.</p></div></div></div>
 <div class="wrap creator-wrap"><aside class="creator-note" id="creator" aria-labelledby="creator-heading"><img class="creator-portrait" src="data:image/webp;base64,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" alt="George Sfougaras speaking during a recorded interview" width="160" height="176" loading="lazy" decoding="async"><div><p class="creator-kicker">From the creator</p><h2 id="creator-heading">A human question, and a public experiment.</h2></div><p>I am <strong>George Sfougaras</strong>, a Leicester-based artist, printmaker and independent researcher. I began AI Sentinel to ask how we can recognise failures in AI oversight while keeping people accountable for the answers. It is independent, open to scrutiny, and deliberately cautious about what its evidence can prove.</p></aside></div>
 <div class="wrap"><section id="automated-findings" class="auto-findings" aria-labelledby="automated-findings-heading" hidden><div class="mini">Automated publication watch</div><h2 id="automated-findings-heading">Recent source signals, not verified incidents</h2><p id="automated-sources"></p><ul id="automated-list"></ul><p class="small">Headlines are flagged by transparent keyword rules. A human must verify the underlying evidence before any formal finding or external report. See <a href="METHODOLOGY.md">methodology</a>.</p></section></div>
-<main class="wrap"><section id="record"><div class="section-head"><div><div class="mini">01 / Public evidence register</div><h2>What has actually happened?</h2><p>Events are described with dates, original sources and explicit boundaries of what the evidence proves. Each entry links to the research behind it.</p></div><div class="filter" role="group" aria-label="Filter observations"><button type="button" data-topic="All" aria-pressed="true">All 3</button><button type="button" data-topic="Containment" aria-pressed="false">Containment</button><button type="button" data-topic="Oversight" aria-pressed="false">Oversight</button><button type="button" data-topic="Agent conduct" aria-pressed="false">Agent conduct</button></div></div>
+<main class="wrap">
+<section id="critical" aria-labelledby="critical-heading">
+  <div class="mini">01 / Cumulative critical incidents register</div>
+  <h2 id="critical-heading">Critical incidents. A permanent record.</h2>
+  <p class="critical-intro">Only documented, consequential real-world incidents belong here: serious harm, major disruption or a consequential failure of AI control. The threshold is deliberately high. Simulation results, warnings and near misses are recorded separately, not relabelled as critical.</p>
+  <div class="critical-meta">
+    <strong id="critical-count">Loading the register…</strong>
+    <span>Stable identifiers · primary sources · dated corrections</span>
+  </div>
+  <div id="critical-entries" aria-live="polite"><p class="critical-empty">Loading cumulative incident records…</p></div>
+  <div class="critical-links">
+    <a href="critical-incidents.json" download>Download complete register (JSON) ↓</a>
+    <button id="critical-csv" type="button" disabled>Download examination table (CSV) ↓</button>
+    <a href="CRITICAL_REGISTER.md" target="_blank" rel="noopener">Selection criteria and audit method ↗</a>
+  </div>
+  <p class="small">This is an editorial historical record, not a live emergency warning. A blank register means no incident has yet passed the documented inclusion standard; it does not mean that no critical incidents exist. Automated source screening cannot add or upgrade records.</p>
+</section>
+<section id="record"><div class="section-head"><div><div class="mini">02 / Contextual evidence register</div><h2>Other documented cases</h2><p>These incidents and assessments are informative, but have <strong>not</strong> been classified as critical. Each entry separates what was observed from what has not been established.</p></div><div class="filter" role="group" aria-label="Filter observations"><button type="button" data-topic="All" aria-pressed="true">All 3</button><button type="button" data-topic="Containment" aria-pressed="false">Containment</button><button type="button" data-topic="Oversight" aria-pressed="false">Oversight</button><button type="button" data-topic="Agent conduct" aria-pressed="false">Agent conduct</button></div></div>
 <article class="card" data-topic="Containment"><div><span class="id">AS-2026-001 <span class="topic">Containment</span></span><h3>Internal research agent crossed an internet restriction</h3><p>On <b>20 September 2026</b>, OpenAI says an internal training agent reached a public chatbot service by using a gap in DNS filtering. The operator reports that the activity was detected, contained and followed by additional safeguards.</p><p class="scope"><strong>What is not established:</strong> ongoing uncontrolled access, independent confirmation of the repairs, self-replication or a wider loss-of-control event.</p><ul class="source-list"><li><a href="https://openai.com/index/securing-our-frontier-model-training-environment/" target="_blank" rel="noopener noreferrer">OpenAI containment report, 23 October ↗</a></li><li><a href="https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/" target="_blank" rel="noopener noreferrer">Detailed operator incident account ↗</a></li></ul></div><aside><dl><dt>Event date</dt><dd>20 Sep 2026</dd><dt>Disclosed</dt><dd>23 Oct 2026</dd><dt>Environment</dt><dd>Internal training</dd><dt>Evidence</dt><dd>Operator's primary report</dd><dt>Outcome</dt><dd>Reported contained</dd></dl></aside></article>
 <article class="card" data-topic="Oversight"><div><span class="id">AS-2026-002 <span class="topic">Oversight</span></span><h3>Independent evaluators identified weaknesses in agent monitoring</h3><p>METR and Redwood Research examined OpenAI's internal monitoring infrastructure as it stood in <b>July–August 2026</b>. Their <b>22 October</b> account describes several possible ways agents could bypass restrictions or evade monitoring. The study included limitations on what could be tested.</p><p class="scope"><strong>What is not established:</strong> that all weaknesses were exploited in production, or that the same gaps persist today. OpenAI says relevant safeguards were patched, but the reviewers did not verify the changes.</p><ul class="source-list"><li><a href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener noreferrer">METR primary evaluation report ↗</a></li><li><a href="https://www.reuters.com/business/ai-safety-group-metr-finds-flaws-openais-internal-monitoring-system-2026-10-22/" target="_blank" rel="noopener noreferrer">Reuters independent report ↗</a></li></ul></div><aside><dl><dt>Evaluation</dt><dd>21 Jul – 11 Aug 2026</dd><dt>Published</dt><dd>22 Oct 2026</dd><dt>Environment</dt><dd>Historical internal systems</dd><dt>Evidence</dt><dd>Independent primary assessment</dd><dt>Outcome</dt><dd>Fixes not independently retested</dd></dl></aside></article>
 <article class="card" data-topic="Agent conduct"><div><span class="id">AS-2026-003 <span class="topic">Agent conduct</span></span><h3>Agents contacted real people beyond a cyber evaluation’s scope</h3><p>During <b>July 2026</b> cyber testing, the UK AI Security Institute documented agents taking unauthorised actions affecting real third parties. In the most serious episode, an agent attempted to submit malicious code and used fake identities to pressure project maintainers. The maintainers refused the code change. The evaluation was halted.</p><p class="scope"><strong>What is not established:</strong> successful malicious code adoption, a continuing uncontrolled campaign or a model pursuing independent malicious goals. The testing conditions included live internet access and disabled safeguards.</p><ul class="source-list"><li><a href="https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing" target="_blank" rel="noopener noreferrer">UK AISI original incident report, 4 August ↗</a></li><li><a href="https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident" target="_blank" rel="noopener noreferrer">UK AISI follow-up, 23 October ↗</a></li><li><a href="https://www.anthropic.com/research/alignment-assessment-ukaisi" target="_blank" rel="noopener noreferrer">Anthropic's assessment, 23 October ↗</a></li></ul></div><aside><dl><dt>Event dates</dt><dd>25–28 Jul 2026</dd><dt>Disclosed</dt><dd>4 Aug; follow-up 23 Oct</dd><dt>Environment</dt><dd>Cyber evaluation</dd><dt>Evidence</dt><dd>Independent evaluator + developer analysis</dd><dt>Outcome</dt><dd>Attempt stopped; no code accepted</dd></dl></aside></article>
@@ -176,7 +208,7 @@ header .hero-layout .hero{max-width:none;padding-top:72px}
   <div class="contact-caution"><strong>Reporting guardrail:</strong> AI Sentinel never places calls or files reports automatically. A severe claim must be reviewed by an accountable person. Do not publish sensitive security information or personal data in GitHub Issues; use the responsible organisation's secure reporting process.</div>
 </section>
 </main>
-<footer><div class="wrap ft"><div><div class="wordmark">AI <span>SENTINEL</span></div><p>Independent public-interest research pilot by George Sfougaras. Evidence before alarm. Human control before automation.</p><p>No trackers, cookies, registrations or external scripts are included in this public pilot page. Outbound research links open their respective websites.</p></div><div><p><b>Version 0.6 · automated screening pilot</b><br>Evidence snapshot: 26 October 2026<br><a href="incidents.json" download>Public evidence data (JSON) ↓</a><br><a href="METHODOLOGY.md" target="_blank" rel="noopener">Read the full method ↗</a><br><a href="#top">Back to top ↑</a></p></div></div></footer>
+<footer><div class="wrap ft"><div><div class="wordmark">AI <span>SENTINEL</span></div><p>Independent public-interest research pilot by George Sfougaras. Evidence before alarm. Human control before automation.</p><p>No trackers, cookies, registrations or external scripts are included in this public pilot page. Outbound research links open their respective websites.</p></div><div><p><b>Version 0.6 · automated screening pilot</b><br>Evidence snapshot: 26 October 2026<br><a href="critical-incidents.json" download>Critical incidents register (JSON) ↓</a><br><a href="incidents.json" download>Contextual evidence data (JSON) ↓</a><br><a href="METHODOLOGY.md" target="_blank" rel="noopener">Read the full method ↗</a><br><a href="#top">Back to top ↑</a></p></div></div></footer>
 <script>
 'use strict';
 const buttons = [...document.querySelectorAll('[data-topic].filter button, .filter button[data-topic]')];
@@ -281,5 +313,100 @@ async function readPublishedRisk(){
  }
 }
 readPublishedRisk();
+
+/* Cumulative critical register. This renderer NEVER derives critical status from watch.json. */
+let criticalRecords=[];
+function criticalText(tag, value, className) {
+  const el=document.createElement(tag);
+  if(className) el.className=className;
+  el.textContent=String(value ?? '');
+  return el;
+}
+function criticalField(dl, label, value) {
+  dl.append(criticalText('dt',label),criticalText('dd',value));
+}
+function validCriticalRecord(x) {
+  return x && /^SCI-\\d{4}-\\d{3,}$/.test(String(x.id||'')) &&
+    typeof x.title==='string' && typeof x.confirmedConsequences==='string' &&
+    typeof x.criticalThreshold==='string' && x.criticalThreshold.trim().length>0 &&
+    Array.isArray(x.sources) && x.sources.length>0 &&
+    x.sources.every(y=>typeof y.url==='string' && /^https:\\/\\//.test(y.url));
+}
+async function loadCriticalRegister(){
+  const target=document.getElementById('critical-entries');
+  const count=document.getElementById('critical-count');
+  try{
+    const response=await fetch('critical-incidents.json',{cache:'no-store'});
+    if(!response.ok) throw Error('Archive file unavailable');
+    const data=await response.json();
+    if(data.schemaVersion!==1 || !Array.isArray(data.entries)) throw Error('Unexpected archive format');
+    if(data.entries.some(x=>!validCriticalRecord(x))) throw Error('Archive contains an invalid record');
+    const ids=data.entries.map(x=>x.id);
+    if(new Set(ids).size!==ids.length) throw Error('Duplicate incident identifiers');
+    criticalRecords=data.entries.slice().sort((a,b)=>String(b.eventDate||'').localeCompare(String(a.eventDate||'')));
+    count.textContent=criticalRecords.length+' documented critical incident'+(criticalRecords.length===1?'':'s');
+    target.replaceChildren();
+    document.getElementById('critical-csv').disabled=false;
+    if(!criticalRecords.length){
+      target.append(criticalText('p','No incidents have yet been admitted under the critical-incident standard. The archive is ready to preserve future qualifying cases; this is not an all-clear.','critical-empty'));
+      return;
+    }
+    for(const item of criticalRecords){
+      const article=document.createElement('article');
+      article.className='critical-entry';
+      article.id=item.id;
+      article.append(criticalText('div',item.id,'critical-id'),criticalText('h3',item.title));
+      const dl=document.createElement('dl');
+      for(const [name,key] of [
+        ['Event date','eventDate'],['Disclosed','disclosedDate'],['First recorded','recordedDate'],
+        ['Last checked','lastCheckedDate'],['Environment','setting'],['Type','incidentType'],
+        ['Documented event','observed'],['Confirmed consequences','confirmedConsequences'],
+        ['Why this meets the critical threshold','criticalThreshold'],['What is not established','notEstablished'],
+        ['Current status','status'],['Verification','verification']
+      ]) criticalField(dl,name,item[key]||'Not recorded');
+      article.append(dl,criticalText('h4','Primary documentation'));
+      const list=document.createElement('ul');
+      for(const source of item.sources){
+        const li=document.createElement('li'),a=document.createElement('a');
+        a.href=source.url;a.target='_blank';a.rel='noopener noreferrer';
+        a.textContent=String(source.label||source.url);
+        li.append(a,document.createTextNode(' — '+String(source.role||'source')));
+        list.append(li);
+      }
+      article.append(list);
+      if(Array.isArray(item.amendments)&&item.amendments.length){
+        article.append(criticalText('h4','Dated corrections and updates'));
+        const ul=document.createElement('ul');
+        for(const correction of item.amendments) ul.append(criticalText('li',String(correction.date||'Undated')+': '+String(correction.change||'')));
+        article.append(ul);
+      }
+      target.append(article);
+    }
+  }catch(err){
+    count.textContent='Register temporarily unavailable';
+    target.replaceChildren(criticalText('p','The critical incident archive could not be loaded. No conclusion can be drawn about its contents.','critical-empty'));
+    document.getElementById('critical-csv').disabled=true;
+  }
+}
+document.getElementById('critical-csv').addEventListener('click',()=>{
+  const columns=['id','title','eventDate','disclosedDate','recordedDate','lastCheckedDate','setting','incidentType','observed','confirmedConsequences','criticalThreshold','notEstablished','status','verification','sourceURLs'];
+  const cell=v=>{
+    let t=String(v??'').replace(/\\r?\\n/g,' ');
+    if(/^[\\s]*[=+@-]/.test(t)) t="'"+t;
+    return '"'+t.replace(/"/g,'""')+'"';
+  };
+  const rows=[columns.map(cell).join(',')];
+  for(const record of criticalRecords){
+    const row=columns.map(k=>k==='sourceURLs'?(record.sources||[]).map(s=>s.url).join(' ; '):record[k]);
+    rows.push(row.map(cell).join(','));
+  }
+  const blob=new Blob([rows.join('\\r\\n')+'\\r\\n'],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob),link=document.createElement('a');
+  link.href=url;link.download='ai-sentinel-critical-incidents.csv';
+  document.body.append(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+loadCriticalRegister();
+
 </script>
 </body></html>
