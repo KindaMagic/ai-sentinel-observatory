@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Append-only leads from automated public source screening. These are NOT verified incidents and never enter the Critical Incidents Register without source-grounded assessment.",
-  "capturedThrough": "2026-10-28T08:46:49Z",
+  "capturedThrough": "2026-10-28T19:34:42Z",
   "items": [
     {
       "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
