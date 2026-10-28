@@ -22,6 +22,7 @@ It is intended to make primary-source reports understandable, dated, open to cri
 - A dedicated, cumulative **Critical Incidents Register** for confirmed consequential real-world incidents, with stable identifiers, source evidence, dated corrections and JSON/CSV export. It is initially empty because the three contextual cases have not been validated against its strict inclusion rule.
 - Three source-linked historical cases in a separate **contextual evidence register**, alongside an automatically refreshed four-source public-news screening indicator.
 - A four-lamp **screening and review framework**: Green or Amber can arise automatically from public publication keyword screening; Orange and Red require documented independent human review and cannot be auto-issued. The lamps are not a global danger index.
+- The watch also preserves high-concern publication links in a public, append-only research inbox (`source-inbox.json`) so they are not lost after 14 days; these are **not verified incidents**.
 - The automated watch cannot label an event critical or add entries to the critical archive. Critical means demonstrated serious real-world consequences, not a keyword, model capability or prediction.
 - A research aid supporting informed discussion and independent scrutiny.
 
