@@ -18,6 +18,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "watch.json"
+INBOX = ROOT / "source-inbox.json"
 TODAY = dt.datetime.now(dt.timezone.utc)
 LOOKBACK_DAYS = 14
 FEEDS = [
@@ -183,9 +184,52 @@ def generate() -> dict:
     }
 
 
+
+def preserve_serious_source_leads(data: dict) -> int:
+    """Keep source links between 14-day windows; never classify them as incidents.
+
+    The source inbox is separate from the editorial critical-incidents.json.
+    No automated rule may publish, revise, or designate a critical incident.
+    """
+    if INBOX.exists():
+        inbox = json.loads(INBOX.read_text(encoding="utf-8"))
+        if inbox.get("schemaVersion") != 1 or not isinstance(inbox.get("items"), list):
+            raise ValueError("Unexpected source inbox schema; refusing to overwrite")
+    else:
+        inbox = {
+            "schemaVersion": 1,
+            "purpose": "Unverified source leads only; not critical incidents.",
+            "capturedThrough": None,
+            "items": [],
+        }
+    seen = {x.get("url") for x in inbox["items"]}
+    added = 0
+    for signal in data.get("signals", []):
+        if signal.get("flag") != "serious-keyword":
+            continue
+        url = signal.get("url")
+        if not isinstance(url, str) or not url.startswith("https://") or url in seen:
+            continue
+        inbox["items"].append({
+            "url": url,
+            "title": str(signal.get("title", ""))[:180],
+            "source": str(signal.get("source", ""))[:120],
+            "publishedAt": signal.get("publishedAt"),
+            "firstSeenAt": data.get("checkedAt"),
+            "status": "unverified-source-lead",
+        })
+        seen.add(url)
+        added += 1
+    inbox["capturedThrough"] = data.get("checkedAt")
+    INBOX.write_text(json.dumps(inbox, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    return added
+
+
 def main() -> None:
     data = generate()
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    added_leads = preserve_serious_source_leads(data)
+    print(f"Source inbox: {added_leads} new unverified leads preserved")
     print(f"AI Sentinel: {data['checkStatus']}, {data['sourcesAvailable']} of {len(FEEDS)} feeds, "
           f"{len(data['signals'])} screened publications, provisional source-watch={data['riskAssessment']['level']}")
     # A failed check still writes an explicit unknown status. It must never create a green all-clear.
