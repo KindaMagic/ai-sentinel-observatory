@@ -221,7 +221,7 @@ def preserve_serious_source_leads(data: dict) -> int:
         seen.add(url)
         added += 1
     inbox["capturedThrough"] = data.get("checkedAt")
-    INBOX.write_text(json.dumps(inbox, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    INBOX.write_text(json.dumps(inbox, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return added
 
 
