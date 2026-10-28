@@ -8,6 +8,14 @@ on:
     paths:
       - "scripts/monitor.py"
       - "tests/test_monitor.py"
+      - "tests/test_critical_register.py"
+      - "index.html"
+      - "incidents.json"
+      - "critical-incidents.json"
+      - "CRITICAL_REGISTER.md"
+      - "METHODOLOGY.md"
+      - "human-judgement.svg"
+      - "sentinel-threshold.svg"
       - ".github/workflows/ai-sentinel-monitor.yml"
 
 permissions:
@@ -47,7 +55,7 @@ jobs:
       - name: Assemble public site snapshot
         run: |
           mkdir -p .site
-          cp index.html incidents.json watch.json METHODOLOGY.md .site/
+          cp index.html incidents.json critical-incidents.json watch.json METHODOLOGY.md CRITICAL_REGISTER.md human-judgement.svg sentinel-threshold.svg .site/
           printf '' > .site/.nojekyll
       - name: Upload public site artifact
         uses: actions/upload-pages-artifact@v3
