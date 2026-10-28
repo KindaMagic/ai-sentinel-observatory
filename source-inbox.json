@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Append-only leads from automated public source screening. These are NOT verified incidents and never enter the Critical Incidents Register without source-grounded assessment.",
+  "capturedThrough": null,
+  "items": []
+}
