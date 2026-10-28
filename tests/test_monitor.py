@@ -3,6 +3,8 @@ import datetime as dt
 import email.utils
 import importlib.util
 import pathlib
+import tempfile
+import json
 import unittest
 from unittest.mock import patch
 
@@ -49,6 +51,26 @@ class SentinelTests(unittest.TestCase):
             "title": "Securing our frontier model training environment",
             "summary": "Improved containment and high-compute red-teaming"
         }))
+
+
+    def test_source_leads_persist_without_becoming_critical_incidents(self):
+        with tempfile.TemporaryDirectory() as temp:
+            inbox = pathlib.Path(temp) / "source-inbox.json"
+            data = {
+                "checkedAt": "2026-10-28T08:00:00Z",
+                "signals": [
+                    {"title": "AI agent unsanctioned action", "url": "https://www.aisi.gov.uk/blog/example",
+                     "source": "AISI", "publishedAt": "2026-10-27", "flag": "serious-keyword"},
+                    {"title": "AI research update", "url": "https://openai.com/news/example",
+                     "source": "OpenAI", "publishedAt": "2026-10-27", "flag": "watch-keyword"},
+                ],
+            }
+            with patch.object(monitor, "INBOX", inbox):
+                self.assertEqual(monitor.preserve_serious_source_leads(data), 1)
+                self.assertEqual(monitor.preserve_serious_source_leads(data), 0)
+            saved = json.loads(inbox.read_text(encoding="utf-8"))
+            self.assertEqual(len(saved["items"]), 1)
+            self.assertEqual(saved["items"][0]["status"], "unverified-source-lead")
 
     def test_total_feed_outage_disables_risk(self):
         with patch.object(monitor, "source_fetch", side_effect=RuntimeError("offline")):
