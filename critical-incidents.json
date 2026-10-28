@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "title": "AI Sentinel Observatory — Critical Incidents Register",
+  "purpose": "Cumulative, source-linked record of confirmed critical real-world AI incidents; not a global risk score or predictions.",
+  "lastEditorialUpdate": "2026-10-28",
+  "inclusionRule": "A documented real-world incident involving serious consequential harm, major disruption, or a consequential failure of AI control. The claimed consequence must be supported by primary evidence and clearly separated from speculation.",
+  "exclusions": [
+    "Controlled simulations without qualifying real-world consequences",
+    "Near misses where serious harm was prevented and no comparably serious consequence is documented",
+    "Hypothetical risks, forecasts, model capability demonstrations, and unexploited vulnerabilities",
+    "Multiple articles about one incident (record one event with multiple sources)",
+    "Unverified allegations and automated keyword matches"
+  ],
+  "publicationRule": "No entry is created by the automatic feed monitor. An entry requires a source-grounded review; when evidence is insufficient, leave the register unchanged.",
+  "entries": []
+}
