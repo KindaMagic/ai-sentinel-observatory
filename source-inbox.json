@@ -1,6 +1,23 @@
 {
   "schemaVersion": 1,
   "purpose": "Append-only leads from automated public source screening. These are NOT verified incidents and never enter the Critical Incidents Register without source-grounded assessment.",
-  "capturedThrough": null,
-  "items": []
+  "capturedThrough": "2026-10-28T08:46:49Z",
+  "items": [
+    {
+      "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
+      "title": "Investigating alignment failures in AISI’s incident",
+      "source": "UK AI Security Institute (Turing feed mirror)",
+      "publishedAt": "2026-10-23",
+      "firstSeenAt": "2026-10-28T08:46:49Z",
+      "status": "unverified-source-lead"
+    },
+    {
+      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "title": "An alignment assessment of the UK AISI cybertesting incident",
+      "source": "Anthropic research (Turing feed mirror)",
+      "publishedAt": "2026-10-23",
+      "firstSeenAt": "2026-10-28T08:46:49Z",
+      "status": "unverified-source-lead"
+    }
+  ]
 }
