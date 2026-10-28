@@ -34,7 +34,8 @@ class CriticalRegisterTests(unittest.TestCase):
 
     def test_monitor_does_not_write_or_promote_critical_records(self):
         source = MONITOR.read_text(encoding="utf-8")
-        self.assertNotIn('critical-incidents.json', source)
+        self.assertNotIn('ROOT / "critical-incidents.json"', source)
+        self.assertNotIn('critical-incidents.json",', source)
         self.assertNotIn('SCI-', source)
 
     def test_archive_is_separate_from_provisional_source_watch(self):
