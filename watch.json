@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-29T08:29:51Z",
+  "checkedAt": "2026-10-29T19:39:02Z",
   "lookbackDays": 14,
   "checkStatus": "ok",
   "sourcesAvailable": 4,
@@ -12,7 +12,7 @@
     "formalPublicRating": "unassigned",
     "assessedOn": "2026-10-29",
     "method": "conservative keyword screening of recent public publication feeds; not validation of claims or an incident count",
-    "status": "2 relevant publication signal(s) in the last 14 days across 4/4 available feeds. Reports may cover the same incident. This is a provisional publication-screening indicator, not a global danger measurement.",
+    "status": "3 relevant publication signal(s) in the last 14 days across 4/4 available feeds. Reports may cover the same incident. This is a provisional publication-screening indicator, not a global danger measurement.",
     "warning": "Green never means safe. Amber means publications merit human checking. Orange and Red require independent documented human review and cannot be selected automatically."
   },
   "sources": [
@@ -20,7 +20,7 @@
       "name": "OpenAI newsroom",
       "feed": "https://openai.com/news/rss.xml",
       "state": "ok",
-      "itemsInWindow": 40
+      "itemsInWindow": 41
     },
     {
       "name": "UK AI Security Institute (Turing feed mirror)",
@@ -38,10 +38,18 @@
       "name": "Hugging Face technical blog",
       "feed": "https://huggingface.co/blog/feed.xml",
       "state": "ok",
-      "itemsInWindow": 15
+      "itemsInWindow": 17
     }
   ],
   "signals": [
+    {
+      "title": "How we detect frontier model misalignment",
+      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+      "publishedAt": "2026-10-29",
+      "summary": "OpenAI uses layered monitoring to detect frontier model misalignment and unauthorized agent behavior so responders can intervene before incidents escalate.",
+      "source": "OpenAI newsroom",
+      "flag": "serious-keyword"
+    },
     {
       "title": "Investigating alignment failures in AISI’s incident",
       "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "purpose": "Append-only leads from automated public source screening. These are NOT verified incidents and never enter the Critical Incidents Register without source-grounded assessment.",
-  "capturedThrough": "2026-10-29T08:29:51Z",
+  "capturedThrough": "2026-10-29T19:39:02Z",
   "items": [
     {
       "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
@@ -17,6 +17,14 @@
       "source": "Anthropic research (Turing feed mirror)",
       "publishedAt": "2026-10-23",
       "firstSeenAt": "2026-10-28T08:46:49Z",
+      "status": "unverified-source-lead"
+    },
+    {
+      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+      "title": "How we detect frontier model misalignment",
+      "source": "OpenAI newsroom",
+      "publishedAt": "2026-10-29",
+      "firstSeenAt": "2026-10-29T19:39:02Z",
       "status": "unverified-source-lead"
     }
   ]
