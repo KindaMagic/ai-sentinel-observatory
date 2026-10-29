@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-28T19:34:42Z",
+  "checkedAt": "2026-10-29T00:00:34Z",
   "lookbackDays": 14,
   "checkStatus": "ok",
   "sourcesAvailable": 4,
@@ -10,7 +10,7 @@
     "state": "provisional",
     "reviewStatus": "automated-provisional",
     "formalPublicRating": "unassigned",
-    "assessedOn": "2026-10-28",
+    "assessedOn": "2026-10-29",
     "method": "conservative keyword screening of recent public publication feeds; not validation of claims or an incident count",
     "status": "2 relevant publication signal(s) in the last 14 days across 4/4 available feeds. Reports may cover the same incident. This is a provisional publication-screening indicator, not a global danger measurement.",
     "warning": "Green never means safe. Amber means publications merit human checking. Orange and Red require independent documented human review and cannot be selected automatically."
@@ -38,7 +38,7 @@
       "name": "Hugging Face technical blog",
       "feed": "https://huggingface.co/blog/feed.xml",
       "state": "ok",
-      "itemsInWindow": 17
+      "itemsInWindow": 15
     }
   ],
   "signals": [
