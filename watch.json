@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-30T23:47:25Z",
+  "checkedAt": "2026-10-31T08:26:11Z",
   "lookbackDays": 14,
   "checkStatus": "ok",
   "sourcesAvailable": 4,
@@ -10,7 +10,7 @@
     "state": "provisional",
     "reviewStatus": "automated-provisional",
     "formalPublicRating": "unassigned",
-    "assessedOn": "2026-10-30",
+    "assessedOn": "2026-10-31",
     "method": "conservative keyword screening of recent public publication feeds; not validation of claims or an incident count",
     "status": "3 relevant publication signal(s) in the last 14 days across 4/4 available feeds. Reports may cover the same incident. This is a provisional publication-screening indicator, not a global danger measurement.",
     "warning": "Green never means safe. Amber means publications merit human checking. Orange and Red require independent documented human review and cannot be selected automatically."
