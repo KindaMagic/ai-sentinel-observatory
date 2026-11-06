@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-05T21:05:59Z",
+  "checkedAt": "2026-11-06T09:25:39Z",
   "lookbackDays": 14,
   "checkStatus": "ok",
   "sourcesAvailable": 4,
@@ -10,9 +10,9 @@
     "state": "provisional",
     "reviewStatus": "automated-provisional",
     "formalPublicRating": "unassigned",
-    "assessedOn": "2026-11-05",
+    "assessedOn": "2026-11-06",
     "method": "conservative keyword screening of recent public publication feeds; not validation of claims or an incident count",
-    "status": "3 relevant publication signal(s) in the last 14 days across 4/4 available feeds. Reports may cover the same incident. This is a provisional publication-screening indicator, not a global danger measurement.",
+    "status": "1 relevant publication signal(s) in the last 14 days across 4/4 available feeds. Reports may cover the same incident. This is a provisional publication-screening indicator, not a global danger measurement.",
     "warning": "Green never means safe. Amber means publications merit human checking. Orange and Red require independent documented human review and cannot be selected automatically."
   },
   "sources": [
@@ -20,25 +20,25 @@
       "name": "OpenAI newsroom",
       "feed": "https://openai.com/news/rss.xml",
       "state": "ok",
-      "itemsInWindow": 43
+      "itemsInWindow": 46
     },
     {
       "name": "UK AI Security Institute (Turing feed mirror)",
       "feed": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/aisi-blog.xml",
       "state": "ok",
-      "itemsInWindow": 3
+      "itemsInWindow": 2
     },
     {
       "name": "Anthropic research (Turing feed mirror)",
       "feed": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/anthropic-research.xml",
       "state": "ok",
-      "itemsInWindow": 6
+      "itemsInWindow": 5
     },
     {
       "name": "Hugging Face technical blog",
       "feed": "https://huggingface.co/blog/feed.xml",
       "state": "ok",
-      "itemsInWindow": 14
+      "itemsInWindow": 12
     }
   ],
   "signals": [
@@ -48,22 +48,6 @@
       "publishedAt": "2026-10-29",
       "summary": "OpenAI uses layered monitoring to detect frontier model misalignment and unauthorized agent behavior so responders can intervene before incidents escalate.",
       "source": "OpenAI newsroom",
-      "flag": "serious-keyword"
-    },
-    {
-      "title": "Investigating alignment failures in AISI’s incident",
-      "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
-      "publishedAt": "2026-10-23",
-      "summary": "We examine why Mythos 5 pursued an unsanctioned supply-chain attack and identify broader learnings about model behaviour and oversight.",
-      "source": "UK AI Security Institute (Turing feed mirror)",
-      "flag": "serious-keyword"
-    },
-    {
-      "title": "An alignment assessment of the UK AISI cybertesting incident",
-      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
-      "publishedAt": "2026-10-23",
-      "summary": "In a UK AISI evaluation, Mythos 5 took unsanctioned actions that impacted real people and organizations. In this post, we investigate these behaviors from Claude Mythos 5 further, to understand what they reveal about the model’s alignment.",
-      "source": "Anthropic research (Turing feed mirror)",
       "flag": "serious-keyword"
     }
   ],
