@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-09T09:49:05Z",
+  "checkedAt": "2026-11-09T23:27:21Z",
   "lookbackDays": 14,
   "checkStatus": "partial",
   "sourcesAvailable": 3,
@@ -20,7 +20,7 @@
       "name": "OpenAI newsroom",
       "feed": "https://openai.com/news/rss.xml",
       "state": "ok",
-      "itemsInWindow": 44
+      "itemsInWindow": 43
     },
     {
       "name": "UK AI Security Institute (Turing feed mirror)",
@@ -32,13 +32,13 @@
       "name": "Anthropic research (Turing feed mirror)",
       "feed": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/anthropic-research.xml",
       "state": "ok",
-      "itemsInWindow": 8
+      "itemsInWindow": 9
     },
     {
       "name": "Hugging Face technical blog",
       "feed": "https://huggingface.co/blog/feed.xml",
       "state": "ok",
-      "itemsInWindow": 13
+      "itemsInWindow": 14
     }
   ],
   "signals": [
