@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-10T09:51:49Z",
+  "checkedAt": "2026-11-10T20:49:40Z",
   "lookbackDays": 14,
   "checkStatus": "partial",
   "sourcesAvailable": 3,
@@ -20,7 +20,7 @@
       "name": "OpenAI newsroom",
       "feed": "https://openai.com/news/rss.xml",
       "state": "ok",
-      "itemsInWindow": 42
+      "itemsInWindow": 44
     },
     {
       "name": "UK AI Security Institute (Turing feed mirror)",
@@ -38,7 +38,7 @@
       "name": "Hugging Face technical blog",
       "feed": "https://huggingface.co/blog/feed.xml",
       "state": "ok",
-      "itemsInWindow": 14
+      "itemsInWindow": 15
     }
   ],
   "signals": [
