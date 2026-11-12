@@ -5,6 +5,7 @@ on:
     - cron: "19 2,8,14,20 * * *"
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
       - "scripts/monitor.py"
       - "tests/test_monitor.py"
@@ -19,6 +20,7 @@ on:
       - ".github/workflows/ai-sentinel-monitor.yml"
 
 permissions:
+  actions: read
   contents: write
   pages: write
   id-token: write
@@ -29,6 +31,7 @@ concurrency:
 
 jobs:
   update:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
@@ -37,6 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           persist-credentials: true
       - name: Run offline safety checks
         run: python3 -m unittest discover -s tests -v
@@ -61,6 +65,19 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .site
+      - name: Wait for uploaded site artifact to become visible
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            count=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" --jq '[.artifacts[] | select(.name == "github-pages" and .expired == false)] | length')
+            if [ "$count" -gt 0 ]; then
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::Uploaded github-pages artifact is not visible after 30 seconds"
+          exit 1
       - name: Deploy refreshed site to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
