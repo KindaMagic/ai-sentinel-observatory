@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-15T19:47:28Z",
+  "checkedAt": "2026-11-15T23:58:18Z",
   "lookbackDays": 14,
   "checkStatus": "partial",
   "sourcesAvailable": 3,
@@ -20,7 +20,7 @@
       "name": "OpenAI newsroom",
       "feed": "https://openai.com/news/rss.xml",
       "state": "ok",
-      "itemsInWindow": 44
+      "itemsInWindow": 46
     },
     {
       "name": "UK AI Security Institute (Turing feed mirror)",
