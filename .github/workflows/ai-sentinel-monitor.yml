@@ -2,7 +2,7 @@ name: AI Sentinel public-source monitor
 
 on:
   schedule:
-    - cron: "19 2,8,14,20 * * *"
+    - cron: "0 9 * * 1"
   workflow_dispatch:
   push:
     branches: [main]
